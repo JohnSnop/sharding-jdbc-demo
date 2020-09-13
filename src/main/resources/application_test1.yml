@@ -1,0 +1,44 @@
+
+
+spring:
+  main:
+    allow-bean-definition-overriding: true  # 一个实体类对应两张表
+  #  thymeleaf:
+    #    prefix: classpath:/templates/
+    #    suffix: .html
+  shardingsphere:
+    datasource:
+      names: test2020 #名字自定义
+      test2020:
+        type: com.alibaba.druid.pool.DruidDataSource
+        url: "jdbc:mysql://localhost:3306/sharding_jdbc?useUnicode=true&characterEncoding=utf-8&useSSL=false\
+                 &serverTimezone=GMT%2B8"
+        driver-class-name: com.mysql.jdbc.Driver
+        username: root
+        password: WF##(QZP4eSkm2QBTiqH3x5FYTftIemPlhTYv15gaU50L2Bz9Ltnk2gurNJRV5eX1MYFk)
+    sharding:
+      tables:
+        course:
+          actual-data-nodes: test2020.course_$->{1..2}
+          key-generator:    # 指定 course 表里面主键 cid 生成策略 SNOWFLAKE
+            column: cid
+            type: SNOWFLAKE
+          table-strategy:
+            inline:
+              sharding-column: cid
+              algorithm-expression: course_$->{cid % 2 + 1}
+    props:
+      sql:
+        show: true
+
+
+
+
+
+
+jasypt:
+  encryptor:
+    bean: wfEncryptorBean
+    property:
+      prefix: WF##(
+      suffix: )
