@@ -33,7 +33,7 @@ class UdictMapperTest {
     @Test
     public void testDelete() {
         QueryWrapper<Udict> wrapper = new QueryWrapper<>();
-        wrapper.eq("dict_id", 512031408860954625L);
+        wrapper.eq("dict_id", 512031409485905920L);
         udictMapper.delete(wrapper);
     }
 }

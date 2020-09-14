@@ -26,7 +26,7 @@ public class EncryptorTest {
     public void contextLoads() {
         Environment environment = applicationContext.getBean(Environment.class);
         // 首先获取配置文件里的原始明文信息
-        String mysqlOriginPswd = environment.getProperty("spring.datasource.password");
+        String mysqlOriginPswd = environment.getProperty("spring.shardingsphere.datasource.test1.password");
         System.out.println("加密后的密码：" + encrypt(mysqlOriginPswd));
         System.out.println("解密后的密码：" + decrypt(mysqlOriginPswd));
     }

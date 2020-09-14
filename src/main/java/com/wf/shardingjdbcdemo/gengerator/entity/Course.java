@@ -14,13 +14,13 @@ import lombok.experimental.Accessors;
  * @since 2020-09-13
  */
 @Data
-  @EqualsAndHashCode(callSuper = false)
-  @Accessors(chain = true)
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
 public class Course implements Serializable {
 
     private static final long serialVersionUID=1L;
 
-      private Long cid;
+    private Long cid;
 
     private String cname;
 
