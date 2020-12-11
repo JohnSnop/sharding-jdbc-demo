@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication()
 @MapperScan("com.wf.shardingjdbcdemo.gengerator.mapper")
+@MapperScan("com.wf.shardingjdbcdemo.dao")
 public class ShardingJdbcDemoApplication {
 
     public static void main(String[] args) {
